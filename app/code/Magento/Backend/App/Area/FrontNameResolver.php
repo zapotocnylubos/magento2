@@ -135,7 +135,7 @@ class FrontNameResolver implements FrontNameResolverInterface
         $host = (string) $this->request->getServer('HTTP_HOST', '');
         $hostWithPort = $this->getHostWithPort($backendUrl);
 
-        return !($hostWithPort === null || $host === '') && stripos($hostWithPort, $host) === 0;
+        return $hostWithPort !== null && $host !== '' && str_starts_with($hostWithPort, $host);
     }
 
     /**
