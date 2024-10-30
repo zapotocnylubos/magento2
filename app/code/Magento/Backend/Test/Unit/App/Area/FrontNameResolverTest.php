@@ -233,6 +233,20 @@ class FrontNameResolverTest extends TestCase
                 'customAdminUrl' => '',
                 'expectedValue' => true
             ],
+            'visitingStorefrontWithAdminSubdomain' => [
+                'url' => 'https://magento.loc',
+                'host' => 'magento.loc',
+                'useCustomAdminUrl' => '1',
+                'customAdminUrl' => 'https://admin.magento.loc',
+                'expectedValue' => false
+            ],
+            'visitingAdminInSubdomain' => [
+                'url' => 'https://magento.loc',
+                'host' => 'admin.magento.loc',
+                'useCustomAdminUrl' => '1',
+                'customAdminUrl' => 'https://admin.magento.loc',
+                'expectedValue' => true
+            ],
             'differentHosts' => [
                 'url' => 'http://m2.loc/',
                 'host' => 'magento2.loc',
